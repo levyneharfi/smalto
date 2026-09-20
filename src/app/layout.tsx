@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { MotionController } from "@/components/motion/motion-controller";
 import "./globals.css";
 import "./catalog.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  ),
   title: {
     default: "Smalto — Maison de couture masculine",
     template: "%s | Smalto",
@@ -46,6 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
       <body>
+        <MotionController />
         <a className="skip-link" href="#contenu-principal">
           Aller au contenu principal
         </a>
