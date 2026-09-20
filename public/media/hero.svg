@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1200" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop stop-color="#202225"/>
+      <stop offset=".52" stop-color="#777169"/>
+      <stop offset="1" stop-color="#b8aa96"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0b0d0f"/>
+      <stop offset="1" stop-color="#33383d"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence baseFrequency=".8" numOctaves="3" seed="7" type="fractalNoise"/>
+      <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .13 0"/>
+    </filter>
+  </defs>
+  <rect width="1800" height="1200" fill="url(#bg)"/>
+  <path d="M0 0h540v1200H0z" fill="#151719" opacity=".72"/>
+  <path d="M1320 0h480v1200h-480z" fill="#d8c9b5" opacity=".35"/>
+  <path d="M1350 0l-180 1200h260L1570 0z" fill="#f4eadb" opacity=".2"/>
+  <ellipse cx="1025" cy="250" rx="92" ry="118" fill="#b29278"/>
+  <path d="M913 342c66-54 160-49 224 8l139 580-525 18 89-503z" fill="url(#coat)"/>
+  <path d="M922 346l103 282 117-278-79-28-39 107-34-111z" fill="#e8e3d9"/>
+  <path d="M1024 430l-19 395" stroke="#040506" stroke-width="18"/>
+  <path d="M887 387L724 916M1158 389l181 515" stroke="#16191c" stroke-width="92" stroke-linecap="round"/>
+  <path d="M825 1150l75-310h150l-9 310zm240 0l-14-310h145l94 310z" fill="#171a1d"/>
+  <path d="M532 0v1200M1468 0v1200" stroke="#fff" opacity=".18"/>
+  <rect width="1800" height="1200" filter="url(#grain)" opacity=".8"/>
+</svg>

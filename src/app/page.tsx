@@ -1,69 +1,217 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const universes = [
+  {
+    title: "L'art du costume",
+    description: "Des lignes franches, une construction souple et un tombé précis.",
+    href: "/collections/costumes",
+    image: "/media/costume.svg",
+    alt: "Composition abstraite évoquant un costume sombre structuré",
+  },
+  {
+    title: "Le vestiaire du soir",
+    description: "La profondeur du noir révélée par la lumière et le mouvement.",
+    href: "/collections/soiree",
+    image: "/media/soir.svg",
+    alt: "Composition abstraite noire et ivoire évoquant une tenue de soirée",
+  },
+  {
+    title: "Les essentiels",
+    description: "Une garde-robe quotidienne où la matière guide la silhouette.",
+    href: "/collections/essentiels",
+    image: "/media/essentiels.svg",
+    alt: "Composition textile abstraite dans des tons sable et pierre",
+  },
+];
+
+const signatures = [
+  {
+    number: "01",
+    title: "La coupe",
+    text: "Une silhouette dessinée avec netteté, libérée de toute rigidité.",
+  },
+  {
+    number: "02",
+    title: "La matière",
+    text: "Des étoffes choisies pour leur main, leur profondeur et leur mouvement.",
+  },
+  {
+    number: "03",
+    title: "Le geste",
+    text: "La précision de l'atelier au service d'une élégance naturelle.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <main id="contenu-principal">
+      <section className="hero" aria-labelledby="hero-title">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          className="hero-image"
+          src="/media/hero.svg"
+          alt="Silhouette masculine abstraite dans un décor architectural parisien"
+          fill
           priority
+          sizes="100vw"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <div className="hero-overlay" aria-hidden="true" />
+        <div className="hero-content">
+          <p className="eyebrow hero-eyebrow">Collection Automne — Hiver</p>
+          <h1 id="hero-title">L&apos;allure<br />en mouvement</h1>
+          <p className="hero-description">
+            Une silhouette parisienne, précise sans être figée, pensée pour
+            accompagner chaque instant.
           </p>
+          <div className="hero-actions">
+            <Link className="button button-light" href="/collections">
+              Découvrir la collection
+            </Link>
+            <Link className="text-link text-link-light" href="/savoir-faire">
+              Entrer dans l&apos;atelier
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <p className="hero-caption">Paris — Collection 2026</p>
+      </section>
+
+      <section className="manifesto section-shell" aria-labelledby="manifesto-title">
+        <p className="eyebrow">Maison parisienne depuis 1962</p>
+        <h2 id="manifesto-title">
+          L&apos;élégance ne se proclame pas.<br />
+          Elle se révèle dans le mouvement.
+        </h2>
+        <p className="manifesto-copy">
+          Smalto imagine un vestiaire masculin où la maîtrise de la coupe
+          rencontre une certaine idée de la liberté. Chaque pièce recherche cet
+          équilibre rare entre présence et discrétion.
+        </p>
+        <Link className="text-link" href="/maison">
+          Découvrir la Maison
+        </Link>
+      </section>
+
+      <section className="universes-section" aria-labelledby="universes-title">
+        <div className="section-heading section-shell">
+          <div>
+            <p className="eyebrow">Le vestiaire</p>
+            <h2 id="universes-title">Trois expressions de l&apos;allure</h2>
+          </div>
+          <Link className="text-link" href="/collections">
+            Voir toute la collection
+          </Link>
         </div>
-      </main>
-    </div>
+
+        <div className="universe-grid">
+          {universes.map((universe, index) => (
+            <article className={`universe-card universe-card-${index + 1}`} key={universe.title}>
+              <Link href={universe.href} className="universe-image-link">
+                <div className="universe-image-frame">
+                  <Image
+                    src={universe.image}
+                    alt={universe.alt}
+                    fill
+                    sizes="(max-width: 767px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="universe-content">
+                  <p className="eyebrow">0{index + 1}</p>
+                  <h3>{universe.title}</h3>
+                  <p>{universe.description}</p>
+                  <span className="text-link" aria-hidden="true">
+                    Explorer
+                  </span>
+                </div>
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="atelier-story" aria-labelledby="atelier-title">
+        <div className="atelier-visual">
+          <Image
+            src="/media/atelier.svg"
+            alt="Composition abstraite évoquant les lignes d'un patron de couture"
+            fill
+            sizes="(max-width: 900px) 100vw, 55vw"
+          />
+        </div>
+        <div className="atelier-content">
+          <p className="eyebrow">Dans les ateliers</p>
+          <h2 id="atelier-title">La précision<br />comme signature</h2>
+          <p>
+            Tout commence par l&apos;observation du corps et du mouvement. Les lignes
+            sont tracées, corrigées puis équilibrées jusqu&apos;à atteindre une
+            évidence : celle d&apos;un vêtement qui accompagne sans contraindre.
+          </p>
+          <Link className="button button-dark" href="/savoir-faire">
+            Découvrir le savoir-faire
+          </Link>
+        </div>
+      </section>
+
+      <section className="signatures section-shell" aria-labelledby="signatures-title">
+        <div className="signatures-introduction">
+          <p className="eyebrow">Les signatures Smalto</p>
+          <h2 id="signatures-title">Une construction<br />de l&apos;essentiel</h2>
+        </div>
+        <ol className="signature-list">
+          {signatures.map((signature) => (
+            <li key={signature.number}>
+              <span className="signature-number" aria-hidden="true">
+                {signature.number}
+              </span>
+              <div>
+                <h3>{signature.title}</h3>
+                <p>{signature.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="journal-highlight" aria-labelledby="journal-title">
+        <Image
+          src="/media/paris.svg"
+          alt="Interprétation graphique d'une façade parisienne à la tombée du jour"
+          fill
+          sizes="100vw"
+        />
+        <div className="journal-overlay" aria-hidden="true" />
+        <div className="journal-content">
+          <p className="eyebrow">Le journal de la Maison</p>
+          <h2 id="journal-title">Paris,<br />ligne de conduite</h2>
+          <p>
+            Une promenade entre architecture, lumière et mouvement, aux sources
+            du vocabulaire Smalto.
+          </p>
+          <Link className="button button-light" href="/journal">
+            Lire l&apos;histoire
+          </Link>
+        </div>
+      </section>
+
+      <section className="services-strip" aria-label="Services de la Maison">
+        <ul>
+          <li>
+            <span>Livraison offerte</span>
+            <p>En France métropolitaine</p>
+          </li>
+          <li>
+            <span>Retours facilités</span>
+            <p>Sous 30 jours</p>
+          </li>
+          <li>
+            <span>Conseil personnalisé</span>
+            <p>En boutique et à distance</p>
+          </li>
+          <li>
+            <span>Emballage signature</span>
+            <p>Préparé avec attention</p>
+          </li>
+        </ul>
+      </section>
+    </main>
   );
 }

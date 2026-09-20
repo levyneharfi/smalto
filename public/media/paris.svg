@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1100">
+  <defs>
+    <linearGradient id="e" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#34424b"/>
+      <stop offset=".6" stop-color="#9a8875"/>
+      <stop offset="1" stop-color="#342d29"/>
+    </linearGradient>
+    <filter id="noise">
+      <feTurbulence baseFrequency=".55" numOctaves="4" seed="11"/>
+      <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .1 0"/>
+    </filter>
+  </defs>
+  <rect width="1800" height="1100" fill="url(#e)"/>
+  <circle cx="1410" cy="225" r="190" fill="#e9d5b0" opacity=".55"/>
+  <path d="M0 350l322-78 21 828H0zm318-79l590 55v774H343zm590 55l392-64 25 838H908zm392-64l500 117v721h-475z" fill="#292b2c" opacity=".88"/>
+  <g fill="#d7ad6e" opacity=".68">
+    <path d="M430 430h95v160h-95zm155 0h95v160h-95zm155 0h95v160h-95z"/>
+    <path d="M430 680h95v160h-95zm310 0h95v160h-95z"/>
+    <path d="M1010 410h85v150h-85zm140 0h85v150h-85zm-140 240h85v150h-85zm140 0h85v150h-85z"/>
+    <path d="M1410 500h100v170h-100zm160 0h100v170h-100zm-160 250h100v170h-100z"/>
+  </g>
+  <path d="M0 978q420-110 820-12t980-30v164H0z" fill="#17191a"/>
+  <rect width="1800" height="1100" filter="url(#noise)"/>
+</svg>
