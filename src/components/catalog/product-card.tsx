@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FavoriteButton } from "@/components/commerce/favorite-button";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/types/catalog";
 
@@ -8,15 +9,17 @@ type ProductCardProps = {
   priority?: boolean;
 };
 
-export function ProductCard({ product, priority = false }: ProductCardProps) {
+export function ProductCard({
+  product,
+  priority = false,
+}: ProductCardProps) {
   return (
     <article className="product-card">
-      <Link
-        className="product-card-link"
-        href={`/produit/${product.slug}`}
-        aria-label={`Découvrir ${product.name}`}
-      >
-        <div className="product-card-image">
+      <div className="product-card-image">
+        <Link
+          href={`/produit/${product.slug}`}
+          aria-label={`Découvrir ${product.name}`}
+        >
           <Image
             src={product.image}
             alt={product.imageAlt}
@@ -24,9 +27,23 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
             priority={priority}
             sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
           />
-          {product.isNew ? <span className="product-badge">Nouveau</span> : null}
-        </div>
+        </Link>
 
+        {product.isNew ? (
+          <span className="product-badge">Nouveau</span>
+        ) : null}
+
+        <FavoriteButton
+          productSlug={product.slug}
+          productName={product.name}
+          compact
+        />
+      </div>
+
+      <Link
+        className="product-card-details"
+        href={`/produit/${product.slug}`}
+      >
         <div className="product-card-content">
           <div>
             <p className="product-category">{product.categoryLabel}</p>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CommerceNavigation } from "@/components/commerce/commerce-navigation";
 
 const primaryNavigation = [
   { href: "/collections", label: "Collection" },
@@ -87,9 +88,7 @@ export function SiteHeader() {
                   Recherche
                 </Link>
               </li>
-              <li>
-                <Link href="/panier">Panier <span aria-hidden="true">(0)</span></Link>
-              </li>
+              <CommerceNavigation />
             </ul>
           </nav>
         </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/catalog/breadcrumbs";
 import { ProductCard } from "@/components/catalog/product-card";
+import { ProductActions } from "@/components/commerce/product-actions";
 import { getProduct, products } from "@/data/catalog";
 import { formatPrice } from "@/lib/format";
 
@@ -98,44 +99,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
           <p className="product-description">{product.description}</p>
 
-          <section className="product-options" aria-labelledby="colors-title">
-            <div className="product-options-heading">
-              <h2 id="colors-title">Coloris</h2>
-              <p>{product.colors[0]?.name}</p>
-            </div>
-            <ul className="product-color-list">
-              {product.colors.map((color, index) => (
-                <li key={color.name}>
-                  <span
-                    className={index === 0 ? "color-swatch is-selected" : "color-swatch"}
-                    style={{ backgroundColor: color.hex }}
-                    aria-hidden="true"
-                  />
-                  <span>{color.name}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="product-options" aria-labelledby="sizes-title">
-            <div className="product-options-heading">
-              <h2 id="sizes-title">Tailles proposées</h2>
-              <Link href="/services/guide-des-tailles">Guide des tailles</Link>
-            </div>
-            <ul className="product-size-list">
-              {product.sizes.map((size) => (
-                <li key={size}>{size}</li>
-              ))}
-            </ul>
-          </section>
-
-          <div className="product-demo-notice" role="note">
-            <p>
-              Ce catalogue est une démonstration éditoriale. L&apos;ajout au panier
-              sera activé dans le prochain lot, avec sélection obligatoire des
-              variantes et persistance locale.
-            </p>
-          </div>
+          <ProductActions
+            productSlug={product.slug}
+            productName={product.name}
+            colors={product.colors}
+            sizes={product.sizes}
+          />
 
           <details className="product-accordion" open>
             <summary>Description et détails</summary>
