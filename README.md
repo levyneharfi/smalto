@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smalto — Boutique Next.js
 
-## Getting Started
+Prototype e-commerce premium développé avec Next.js, React et TypeScript.
 
-First, run the development server:
+## Installation
 
 ```bash
+nvm use
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le site est ensuite disponible sur http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Vérifications
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run check
+npm run test:e2e
+npm audit
+```
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` : développement
+- `npm run build` : build de production
+- `npm run start` : serveur de production
+- `npm run lint` : ESLint
+- `npm run typecheck` : TypeScript
+- `npm run test` : tests unitaires
+- `npm run test:e2e` : tests Playwright desktop et mobile
+- `npm run check` : lint, types, tests unitaires et build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/app` : routes et pages Next.js
+- `src/components` : composants visuels
+- `src/data` : catalogue local
+- `src/lib` : logique du panier et des favoris
+- `tests/unit` : tests Vitest
+- `e2e` : tests Playwright et accessibilité
+- `.github/workflows/ci.yml` : intégration continue
 
-## Deploy on Vercel
+## Production
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Le projet utilise le mode Next.js standalone et peut être déployé avec le Dockerfile fourni.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+docker build -t smalto .
+docker run --rm -p 3000:3000 smalto
+```
+
+## Données
+
+Le catalogue est local et le panier ainsi que les favoris sont conservés dans localStorage. Aucun paiement réel ni back-office ne sont inclus.
