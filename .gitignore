@@ -42,3 +42,10 @@ next-env.d.ts
 
 # Documentation des variables autorisée
 !.env.example
+
+# Playwright
+/playwright-report/
+/test-results/
+/playwright-report
+/test-results
+/coverage/

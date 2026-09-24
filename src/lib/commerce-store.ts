@@ -157,8 +157,14 @@ function safeParse(value: string): unknown {
 }
 
 function subscribe(listener: () => void): () => void {
-  initialize();
+  const requiresInitialNotification = !initialized;
+
   listeners.add(listener);
+  initialize();
+
+  if (requiresInitialNotification) {
+    listener();
+  }
 
   return () => {
     listeners.delete(listener);
